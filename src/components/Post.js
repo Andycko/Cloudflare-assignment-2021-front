@@ -1,7 +1,10 @@
-import React from 'react';
 import axios from 'axios';
+import React, { useContext } from 'react';
+import { AppContext } from '../App'
 
 const Post = (props) => {
+
+    const {dispatch} = useContext(AppContext);
 
     const [post, setPost] = React.useState({
         id: props.data.id,
@@ -16,8 +19,7 @@ const Post = (props) => {
         axios({
             method: "POST",
             url: `${process.env.REACT_APP_API_URL}/posts/vote/${mode}/${post.id}`,          
-        }).then((response) => {
-            console.log(response)
+        }).then((response) => {  
             setPost({
                 id: props.data.id,
                 username: props.data.username,
@@ -25,6 +27,7 @@ const Post = (props) => {
                 content: props.data.content,
                 rating: response.data.rating
             })
+            dispatch({ type: 'UPDATE_POSTS', data: true});
         }).catch((error) => {
             console.log(error)
         })
