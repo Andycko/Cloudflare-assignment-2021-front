@@ -56,9 +56,9 @@ const NewPost = (props) => {
         <article className="newPost-wrapper card p-3 mb-5 col-9 d-flex flex-column align-items-center">
             <h1 className="h2 mb-3 text-center w-100" >Add a new post!</h1>
             <form method="POST" className="row justify-content-between" onSubmit={handleSubmit}>
-                <input className="col-4 mb-2" name="username" type="text" placeholder="Username" onChange={handleChange}></input>
-                <input className="col-7 mb-2" name="title" type="text" placeholder="Title" onChange={handleChange}></input>
-                <textarea className="col-12 mb-5" name="content" type="text" placeholder="Content" onChange={handleChange}></textarea>
+                <input className="col-4 mb-2" name="username" type="text" placeholder="Username" required onChange={handleChange}></input>
+                <input className="col-7 mb-2" name="title" type="text" placeholder="Title" required onChange={handleChange}></input>
+                <textarea className="col-12 mb-5" name="content" type="text" placeholder="Content" required onChange={handleChange}></textarea>
                 <button className="btn btn-primary m-auto" type="submit">Add post</button>
             </form>
         </article>
